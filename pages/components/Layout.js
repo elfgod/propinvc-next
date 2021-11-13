@@ -16,10 +16,10 @@ function Layout({ children, props }) {
           <Typography>PropinVC</Typography>
         </Toolbar>
       </AppBar>
-      <Container>{children}</Container>
-      <footer>
+      <Container className={classes.main}>{children}</Container>
+      <foote className={classes.footer} r>
         <Typography>All rights reserved. @PropinVC</Typography>
-      </footer>
+      </foote>
     </div>
   );
 }
