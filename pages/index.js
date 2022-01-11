@@ -8,6 +8,8 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import NextLink from 'next/link';
+
 import Layout from './components/Layout';
 import data from '../utils/data';
 
@@ -20,16 +22,18 @@ export default function Home() {
           {data.properties.map((property) => (
             <Grid item md={4} key={property.code}>
               <Card>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={property.image}
-                    title={property.name}
-                  ></CardMedia>
-                  <CardContent>
-                    <Typography>{property.name}</Typography>
-                  </CardContent>
-                </CardActionArea>
+                <NextLink href={`/property/${property.slug}`} passHref>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image={property.image}
+                      title={property.name}
+                    ></CardMedia>
+                    <CardContent>
+                      <Typography>{property.name}</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </NextLink>
                 <CardActions>
                   <Typography>${property.price}</Typography>
                   <Button size="small" color="primary">
